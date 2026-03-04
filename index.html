@@ -35,6 +35,23 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            padding: 5px 0; /* Reduce vertical padding */
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px; /* Reduced padding to reduce space */
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo img {
+            max-height: 80px; /* Increased height to make logo bigger */
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-container {
@@ -46,38 +63,54 @@
             padding: 15px 20px;
         }
 
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); text-decoration: none; display: flex; align-items: center; gap: 10px; }
-        .logo img {
-            max-height: 100px;
-            width: auto;
-            object-fit: contain;
-        }
-
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 15px; /* Reduced gap between navigation links */
         }
 
         .nav-links li a {
             text-decoration: none;
             color: var(--primary-blue);
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            font-size: 1.2rem; /* Make navigation links bigger */
+            padding: 8px 12px; /* Reduced padding to reduce space */
+            border-radius: 5px; /* Add rounded corners */
+            display: inline-block; /* Ensure proper button-like behavior */
         }
 
-        .nav-links li a:hover { color: var(--light-blue); }
+        .nav-links li a:hover {
+            color: var(--white);
+            background-color: var(--light-blue); /* More prominent hover effect */
+        }
 
         .btn-apply {
             background-color: var(--light-blue);
             color: var(--white);
-            padding: 10px 20px;
+            padding: 8px 12px; /* Same padding as navigation links */
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             transition: background 0.3s;
             cursor: pointer;
             border: none;
+            font-size: 1.2rem; /* Same font size as navigation links */
+        }
+
+        .btn-apply:hover { background-color: var(--primary-blue); }
+
+        .btn-apply {
+            background-color: var(--light-blue);
+            color: var(--white);
+            padding: 10px 20px; /* Standard padding */
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem; /* Standard font size */
         }
 
         .btn-apply:hover { background-color: var(--primary-blue); }
@@ -366,7 +399,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Book a Free Consultation</h2>
-            <p style="margin-bottom: 20px; font-size: 0.9rem;">Fill out the form below and our counselors will get back to you shortly.</p>
+            <p style="margin-bottom: 0px; font-size: 0.9rem;">Fill out the form below and our counselors will get back to you shortly.</p>
             
             <form action="https://formsubmit.co/sumanaghimiree@gmail.com" method="POST">
                 <input type="hidden" name="_subject" value="New Consultation Request from Website!">
