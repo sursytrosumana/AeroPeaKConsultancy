@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroPeak Education Consultancy | Dream . Explore . Achieve</title>
+    <style>
+        /* Base Styles & Brand Colors */
+        :root {
+            --primary-blue: #0066B3; 
+            --light-blue: #00A3E0; 
+            --text-gray: #4A4A4A; 
+            --light-bg: #F5F7FA;
+            --white: #ffffff;
+            --success-green: #28a745;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--light-blue); }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover { color: var(--light-blue); }
+
+        .btn-apply {
+            background-color: var(--light-blue);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-apply:hover { background-color: var(--primary-blue); }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 102, 179, 0.85), rgba(0, 163, 224, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; text-transform: capitalize; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .hero .cta-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-outline:hover { background: var(--white); color: var(--primary-blue); }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background: var(--white);
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: -40px auto 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .stat-item h3 { font-size: 2.5rem; color: var(--primary-blue); }
+        .stat-item p { font-weight: bold; color: var(--text-gray); }
+
+        /* General Section Styles */
+        section { padding: 80px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-title { color: var(--primary-blue); font-size: 2.2rem; margin-bottom: 40px; text-align: center; }
+        
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+
+        /* USPs / Why Choose Us */
+        .bg-light { background-color: var(--light-bg); }
+        .usp-card {
+            background: var(--white); padding: 25px; border-radius: 8px; border-left: 5px solid var(--success-green);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .usp-card h3 { color: var(--primary-blue); margin-bottom: 10px; }
+
+        /* Services & Destinations */
+        .service-card {
+            background: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s; text-align: center; border: 1px solid #eee;
+        }
+        .service-card:hover { transform: translateY(-5px); border-bottom: 4px solid var(--light-blue); }
+        .service-card h3 { color: var(--primary-blue); margin-bottom: 15px; }
+
+        .dest-card {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1502602898657-3e90760b378e?auto=format&fit=crop&q=80') center/cover;
+            color: var(--white); padding: 60px 20px; border-radius: 8px; font-weight: bold; font-size: 1.5rem;
+            cursor: pointer; transition: transform 0.3s; text-align: center; display: flex; align-items: center; justify-content: center;
+        }
+        .dest-card:hover { transform: scale(1.05); }
+
+        /* Testimonials */
+        .testimonial-card { background: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-style: italic; position: relative; }
+        .student-info { display: flex; align-items: center; gap: 15px; margin-top: 20px; font-style: normal; }
+        .student-info h4 { color: var(--primary-blue); }
+        .student-info span { font-size: 0.9rem; color: #777; }
+
+        /* Modal Styles */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: var(--white); margin: 5% auto; padding: 40px; border-radius: 10px;
+            width: 90%; max-width: 500px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .close:hover, .close:focus { color: var(--primary-blue); }
+        
+        .modal h2 { color: var(--primary-blue); margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--light-blue); }
+        .submit-btn { width: 100%; font-size: 1.1rem; padding: 15px; margin-top: 10px; }
+
+        /* Footer */
+        footer { background-color: #1a1a1a; color: var(--white); padding: 60px 20px 20px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h4 { color: var(--light-blue); margin-bottom: 20px; font-size: 1.2rem; }
+        .footer-section p, .footer-section ul { font-size: 0.95rem; color: #ccc; list-style: none; }
+        .footer-section ul li { margin-bottom: 10px; }
+        .footer-section ul li a { color: #ccc; text-decoration: none; transition: 0.3s; }
+        .footer-section ul li a:hover { color: var(--white); padding-left: 5px; }
+        .copyright { border-top: 1px solid #333; padding-top: 20px; text-align: center; font-size: 0.9rem; color: #888; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">✈️ Aero<span>Peak</span></a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">Why Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="btn-apply trigger-modal">Book a Consultation</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Study in UK, Australia, Canada, USA & More</h1>
+        <p>Your trusted partner for international education. We provide 100% transparent processing with no hidden charges to help you secure your future globally.</p>
+        <div class="cta-group">
+            <button class="btn-apply trigger-modal" style="font-size: 1.2rem; padding: 15px 30px;">Apply Now</button>
+            <a href="#services" class="btn-outline">Explore Programs</a>
+        </div>
+    </section>
+
+    <div class="stats">
+        <div class="stat-item">
+            <h3>95%</h3>
+            <p>Visa Success Rate</p>
+        </div>
+        <div class="stat-item">
+            <h3>500+</h3>
+            <p>Students Abroad</p>
+        </div>
+        <div class="stat-item">
+            <h3>50+</h3>
+            <p>Partner Universities</p>
+        </div>
+        <div class="stat-item">
+            <h3>10+</h3>
+            <p>Years Experience</p>
+        </div>
+    </div>
+
+    <section id="about" class="container">
+        <h2 class="section-title">Why Choose AeroPeak?</h2>
+        <div class="grid-3">
+            <div class="usp-card">
+                <h3>✅ 100% Transparent</h3>
+                <p>No hidden charges, no false promises. We walk you through exact university fees and processing costs from day one.</p>
+            </div>
+            <div class="usp-card">
+                <h3>✅ Visa-Oriented Counseling</h3>
+                <p>We analyze your profile strictly against embassy requirements to ensure the highest possible visa success rate.</p>
+            </div>
+            <div class="usp-card">
+                <h3>✅ Full Post-Visa Support</h3>
+                <p>Our job doesn't end at the visa. We assist with accommodation, airport pickups, and pre-departure briefings.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Core Services</h2>
+            <div class="grid-3">
+                <div class="service-card">
+                    <h3>Test Preparation</h3>
+                    <p>Expert coaching and Free Mock Tests for IELTS, PTE, and TOEFL to secure your required bands.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Career Counseling</h3>
+                    <p>Personalized sessions matching +2 and Bachelor's graduates to the right international courses.</p>
+                </div>
+                <div class="service-card">
+                    <h3>SOP & LOR Support</h3>
+                    <p>Professional guidance in drafting winning Statements of Purpose and securing strong recommendations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>University Selection</h3>
+                    <p>Direct partnerships with top-ranked universities offering high scholarship opportunities.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Visa Assistance</h3>
+                    <p>Flawless documentation, financial guidance, and intensive mock interview preparations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Scholarship Guidance</h3>
+                    <p>We help you identify and apply for merit-based and need-based international scholarships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinations" class="container">
+        <h2 class="section-title">Top Study Destinations</h2>
+        <div class="grid-4">
+            <div class="dest-card" style="background-image: linear-gradient(rgba(0,102,179,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80')">🇬🇧 UK</div>
+            <div class="dest-card" style="background-image: linear-gradient(rgba(0,102,179,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&q=80')">🇦🇺 Australia</div>
+            <div class="dest-card" style="background-image: linear-gradient(rgba(0,102,179,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&q=80')">🇨🇦 Canada</div>
+            <div class="dest-card" style="background-image: linear-gradient(rgba(0,102,179,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&q=80')">🇺🇸 USA</div>
+            <div class="dest-card" style="background-image: linear-gradient(rgba(0,102,179,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&q=80')">🇩🇪 Germany</div>
+            <div class="dest-card" style="background-image: linear-gradient(rgba(0,102,179,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&q=80')">🇰🇷 South Korea</div>
+            <div class="dest-card" style="background-image: linear-gradient(rgba(0,102,179,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?auto=format&fit=crop&q=80')">🇩🇰 Denmark</div>
+            <div class="dest-card" style="background-color: var(--light-blue); background-image: none;">+ Explore More</div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Student Success Stories</h2>
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <p>"AeroPeak made my dream of studying in Australia a reality. Their transparency with fees and documentation was a breath of fresh air compared to others in Kathmandu."</p>
+                    <div class="student-info">
+                        <div>
+                            <h4>Suman Gurung</h4>
+                            <span>Master of IT, Deakin University 🇦🇺</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I was struggling with my SOP for Canada. The counselors here sat with me for hours to refine my story. I got my visa approved in just 3 weeks!"</p>
+                    <div class="student-info">
+                        <div>
+                            <h4>Priya Shrestha</h4>
+                            <span>Business Management, Humber College 🇨🇦</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>AeroPeak Education Consultancy</h4>
+                <p>Dream . Explore . Achieve</p>
+                <p style="margin-top: 15px;">Dedicated to helping Nepalese students achieve their global academic dreams through ethical, transparent counseling.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Study Guides (Blog)</h4>
+                <ul>
+                    <li><a href="#">Cost to Study in UK from Nepal 2026</a></li>
+                    <li><a href="#">Canada Student Visa Step-by-Step</a></li>
+                    <li><a href="#">Germany Free Education Guide</a></li>
+                    <li><a href="#">Australia Intake Deadlines 2026</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact & Visit Us</h4>
+                <p>📍 Location: Putalisadak, Kathmandu, Nepal</p>
+                <p>📞 Phone: +977-9800000000</p>
+                <p>✉️ Email: info@aeropeak.com.np</p>
+                <br>
+                <a href="https://wa.me/9779800000000" class="btn-apply" target="_blank" style="background-color: #25D366; display: inline-block;">Chat on WhatsApp</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 AeroPeak Education Consultancy Pvt. Ltd. All Rights Reserved.
+        </div>
+    </footer>
+
+    <div id="consultationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book a Free Consultation</h2>
+            <p style="margin-bottom: 20px; font-size: 0.9rem;">Fill out the form below and our counselors will get back to you shortly.</p>
+            
+            <form action="https://formsubmit.co/sumanaghimiree@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Consultation Request from Website!">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required placeholder="e.g. Aayush Thapa">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" required placeholder="e.g. 9841000000">
+                </div>
+                <div class="form-group">
+                    <label>Current Education Level</label>
+                    <select name="education" required>
+                        <option value="" disabled selected>Select Level</option>
+                        <option value="+2 Science">+2 Science</option>
+                        <option value="+2 Management">+2 Management</option>
+                        <option value="Bachelor's Degree">Bachelor's Degree</option>
+                        <option value="Master's Degree">Master's Degree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Desired Study Destination</label>
+                    <select name="country" required>
+                        <option value="" disabled selected>Select Country</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Canada">Canada</option>
+                        <option value="USA">USA</option>
+                        <option value="Other">Other (Europe/Asia)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>IELTS / PTE Score (If taken)</label>
+                    <input type="text" name="ielts" placeholder="e.g. 6.5 or Not Taken Yet">
+                </div>
+                <button type="submit" class="btn-apply submit-btn">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Get modal elements
+        var modal = document.getElementById("consultationModal");
+        var btns = document.querySelectorAll(".trigger-modal");
+        var span = document.getElementsByClassName("close")[0];
+
+        // Open modal on button click
+        btns.forEach(function(btn) {
+            btn.onclick = function(e) {
+                e.preventDefault();
+                modal.style.display = "block";
+            }
+        });
+
+        // Close modal on 'X' click
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
